@@ -1,6 +1,6 @@
 const http = require('http');
 const WebApp = require('./lib/webapp');
-const PORT = 8000;
+const PORT = 9000;
 let app = new WebApp();
 const lib = require("./lib/handlerLib.js");
 
@@ -11,7 +11,7 @@ app.use(lib.setSessionIdAndUser);
 app.get('/', lib.getHome);
 app.get('/login', lib.handleGetLogin);
 app.get('/index.html', lib.handleGetHome);
-app.get('/logout', lib.handleGetLogOut);
+app.post('/logout',lib.handlePostLogOut);
 app.get('/guestBook.html', lib.serveGuestBook);
 app.post('/login', lib.handlePostLogin);
 app.post('/addComment', lib.handleComments);
